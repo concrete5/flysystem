@@ -1,6 +1,6 @@
 <?php
 
-namespace League\Flysystem\Cache;
+namespace Concrete\Flysystem\Cache;
 
 use Predis\Client;
 

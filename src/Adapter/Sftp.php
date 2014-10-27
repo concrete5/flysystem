@@ -1,11 +1,11 @@
 <?php
 
-namespace League\Flysystem\Adapter;
+namespace Concrete\Flysystem\Adapter;
 
 use Net_SFTP;
 use Crypt_RSA;
-use League\Flysystem\AdapterInterface;
-use League\Flysystem\Util;
+use Concrete\Flysystem\AdapterInterface;
+use Concrete\Flysystem\Util;
 use LogicException;
 use InvalidArgumentException;
 

@@ -1,6 +1,6 @@
 <?php
 
-use League\Flysystem\Cache\Memcached;
+use Concrete\Flysystem\Cache\Memcached;
 use Predis\Client;
 
 class MemcachedTests extends PHPUnit_Framework_TestCase

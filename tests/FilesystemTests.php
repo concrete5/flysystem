@@ -1,6 +1,6 @@
 <?php
 
-namespace League\Flysystem;
+namespace Concrete\Flysystem;
 
 use Mockery;
 
@@ -26,7 +26,7 @@ class FilesystemTests extends \PHPUnit_Framework_TestCase
 
     public function testAbstractAdapterCopy()
     {
-        $mock = Mockery::mock('League\Flysystem\Adapter\AbstractAdapter[readStream,writeStream]');
+        $mock = Mockery::mock('Concrete\Flysystem\Adapter\AbstractAdapter[readStream,writeStream]');
         $mock->shouldReceive('readStream')->andReturn(false, tmpfile(), tmpfile());
         $mock->shouldReceive('writeStream')->andReturn(false, true);
         $this->assertFalse($mock->copy('something', 'other'));
@@ -73,12 +73,12 @@ class FilesystemTests extends \PHPUnit_Framework_TestCase
      */
     public function testDepGetters($filesystem)
     {
-        $this->assertInstanceOf('League\Flysystem\CacheInterface', $filesystem->getCache());
-        $this->assertInstanceOf('League\Flysystem\ReadInterface', $filesystem->getCache());
-        $this->assertInstanceOf('League\Flysystem\Cache\AbstractCache', $filesystem->getCache());
-        $this->assertInstanceOf('League\Flysystem\AdapterInterface', $filesystem->getAdapter());
-        $this->assertInstanceOf('League\Flysystem\ReadInterface', $filesystem->getAdapter());
-        $this->assertInstanceOf('League\Flysystem\Adapter\AbstractAdapter', $filesystem->getAdapter());
+        $this->assertInstanceOf('Concrete\Flysystem\CacheInterface', $filesystem->getCache());
+        $this->assertInstanceOf('Concrete\Flysystem\ReadInterface', $filesystem->getCache());
+        $this->assertInstanceOf('Concrete\Flysystem\Cache\AbstractCache', $filesystem->getCache());
+        $this->assertInstanceOf('Concrete\Flysystem\AdapterInterface', $filesystem->getAdapter());
+        $this->assertInstanceOf('Concrete\Flysystem\ReadInterface', $filesystem->getAdapter());
+        $this->assertInstanceOf('Concrete\Flysystem\Adapter\AbstractAdapter', $filesystem->getAdapter());
     }
 
     /**
@@ -127,7 +127,7 @@ class FilesystemTests extends \PHPUnit_Framework_TestCase
 
     public function testCopyFail()
     {
-        $mock = Mockery::mock('League\Flysystem\AdapterInterface');
+        $mock = Mockery::mock('Concrete\Flysystem\AdapterInterface');
         $mock->shouldReceive('write')->andReturn(array(
             'path' => 'path.txt',
         ));
@@ -180,7 +180,7 @@ class FilesystemTests extends \PHPUnit_Framework_TestCase
 
     public function testPutFail()
     {
-        $mock = \Mockery::mock('League\Flysystem\AdapterInterface');
+        $mock = \Mockery::mock('Concrete\Flysystem\AdapterInterface');
         $mock->shouldReceive('has')->andReturn(true);
         $mock->shouldReceive('update')->andReturn(false);
         $filesystem = new Filesystem($mock);
@@ -188,7 +188,7 @@ class FilesystemTests extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException  \League\Flysystem\FileExistsException
+     * @expectedException  \Concrete\Flysystem\FileExistsException
      */
     public function testFileExists()
     {
@@ -198,7 +198,7 @@ class FilesystemTests extends \PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider filesystemProvider
-     * @expectedException  \League\Flysystem\FileNotFoundException
+     * @expectedException  \Concrete\Flysystem\FileNotFoundException
      */
     public function testFileNotFoundUpdate($filesystem)
     {
@@ -207,7 +207,7 @@ class FilesystemTests extends \PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider filesystemProvider
-     * @expectedException  \League\Flysystem\FileNotFoundException
+     * @expectedException  \Concrete\Flysystem\FileNotFoundException
      */
     public function testFileNotFoundDelete($filesystem)
     {
@@ -216,7 +216,7 @@ class FilesystemTests extends \PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider filesystemProvider
-     * @expectedException  \League\Flysystem\RootViolationException
+     * @expectedException  \Concrete\Flysystem\RootViolationException
      */
     public function testRootViolationProtection($filesystem)
     {
@@ -382,8 +382,8 @@ class FilesystemTests extends \PHPUnit_Framework_TestCase
      */
     public function testAdapterFail($method, $hasfile)
     {
-        $mock = \Mockery::mock('League\Flysystem\Adapter\AbstractAdapter');
-        $cachemock = \Mockery::mock('League\Flysystem\Cache\AbstractCache');
+        $mock = \Mockery::mock('Concrete\Flysystem\Adapter\AbstractAdapter');
+        $cachemock = \Mockery::mock('Concrete\Flysystem\Cache\AbstractCache');
         $cachemock->shouldReceive('load')->andReturn(array());
         $cachemock->shouldReceive('has')->andReturn(null);
         $cachemock->shouldReceive('isComplete')->andReturn(false);
@@ -401,8 +401,8 @@ class FilesystemTests extends \PHPUnit_Framework_TestCase
 
     public function testFailingPut()
     {
-        $mock = \Mockery::mock('League\Flysystem\Adapter\AbstractAdapter');
-        $cachemock = \Mockery::mock('League\Flysystem\Cache\AbstractCache');
+        $mock = \Mockery::mock('Concrete\Flysystem\Adapter\AbstractAdapter');
+        $cachemock = \Mockery::mock('Concrete\Flysystem\Cache\AbstractCache');
         $cachemock->shouldReceive('load')->andReturn(array());
         $cachemock->shouldReceive('has')->andReturn(false);
         $cachemock->shouldReceive('isComplete')->andReturn(false);
@@ -509,8 +509,8 @@ class FilesystemTests extends \PHPUnit_Framework_TestCase
         }
 
         $handler = $filesystem->get('nested/file.txt');
-        $this->assertInstanceOf('League\Flysystem\Handler', $handler);
-        $this->assertInstanceOf('League\Flysystem\File', $handler);
+        $this->assertInstanceOf('Concrete\Flysystem\Handler', $handler);
+        $this->assertInstanceOf('Concrete\Flysystem\File', $handler);
         $this->assertEquals(8, $handler->getSize());
         $this->assertEquals('nested/file.txt', $handler->getPath());
         $this->assertEquals('text/plain', $handler->getMimetype());
@@ -542,7 +542,7 @@ class FilesystemTests extends \PHPUnit_Framework_TestCase
 
     public function testAbstractReadStream()
     {
-        $mock = \Mockery::mock('League\Flysystem\Adapter\AbstractAdapter[read,write,update,getTimestamp,getMetadata,getMimetype,getSize,delete,deleteDir,listContents,has,createDir,rename]');
+        $mock = \Mockery::mock('Concrete\Flysystem\Adapter\AbstractAdapter[read,write,update,getTimestamp,getMetadata,getMimetype,getSize,delete,deleteDir,listContents,has,createDir,rename]');
         $mock->shouldReceive('read')->twice()->andReturn(false, array('contents' => 'something'));
         $this->assertFalse($mock->readStream('path'));
         $data = $mock->readStream('path');
@@ -553,7 +553,7 @@ class FilesystemTests extends \PHPUnit_Framework_TestCase
     {
         $path = 'path.ext';
         $expected = 'contents';
-        $mock = Mockery::mock('League\Flysystem\Adapter\AbstractAdapter[has,read,delete]');
+        $mock = Mockery::mock('Concrete\Flysystem\Adapter\AbstractAdapter[has,read,delete]');
         $adapter = new Filesystem($mock);
         $mock->shouldReceive('has')->andReturn(true);
         $mock->shouldReceive('read')->once()->with($path)->andReturn(array('contents' => $expected));
@@ -566,7 +566,7 @@ class FilesystemTests extends \PHPUnit_Framework_TestCase
     {
         $path = 'path.ext';
         $expected = false;
-        $mock = Mockery::mock('League\Flysystem\Adapter\AbstractAdapter[has,read,delete]');
+        $mock = Mockery::mock('Concrete\Flysystem\Adapter\AbstractAdapter[has,read,delete]');
         $adapter = new Filesystem($mock);
         $mock->shouldReceive('has')->andReturn(true);
         $mock->shouldReceive('read')->once()->with($path)->andReturn($expected);

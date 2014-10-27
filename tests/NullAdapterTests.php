@@ -1,7 +1,7 @@
 <?php
 
-use League\Flysystem\Adapter\NullAdapter;
-use League\Flysystem\Filesystem;
+use Concrete\Flysystem\Adapter\NullAdapter;
+use Concrete\Flysystem\Filesystem;
 
 class NullAdapterTest extends PHPUnit_Framework_TestCase
 {
@@ -19,7 +19,7 @@ class NullAdapterTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException  \League\Flysystem\FileNotFoundException
+     * @expectedException  \Concrete\Flysystem\FileNotFoundException
      */
     public function testRead()
     {

@@ -1,7 +1,7 @@
 <?php
 
 use Guzzle\Http\Exception\ClientErrorResponseException;
-use League\Flysystem\Adapter\Rackspace;
+use Concrete\Flysystem\Adapter\Rackspace;
 
 class RackspaceTests extends PHPUnit_Framework_TestCase
 {

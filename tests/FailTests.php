@@ -1,6 +1,6 @@
 <?php
 
-namespace League\Flysystem\Adapter {
+namespace Concrete\Flysystem\Adapter {
     function file_put_contents($name) {
         if (strpos($name, 'pleasefail') !== false)
             return false;
@@ -16,7 +16,7 @@ namespace League\Flysystem\Adapter {
     }
 }
 
-namespace League\Flysystem {
+namespace Concrete\Flysystem {
 
     class FailTests extends \PHPUnit_Framework_TestCase
     {

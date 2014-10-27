@@ -1,21 +1,21 @@
 <?php
 
-use League\Flysystem\Adapter\Local;
-use League\Flysystem\Adapter\Zip;
+use Concrete\Flysystem\Adapter\Local;
+use Concrete\Flysystem\Adapter\Zip;
 
 class ZipTests extends PHPUnit_Framework_TestCase
 {
     public function zipProvider()
     {
         return array(
-            array(new League\Flysystem\Adapter\Zip(__DIR__.'/files/tester.zip', new ZipArchive))
+            array(new Concrete\Flysystem\Adapter\Zip(__DIR__.'/files/tester.zip', new ZipArchive))
         );
     }
 
     public function testInstance()
     {
-        $adapter = new League\Flysystem\Adapter\Zip(__DIR__.'/files/tester.zip', new ZipArchive);
-        $this->assertInstanceOf('League\Flysystem\AdapterInterface', $adapter);
+        $adapter = new Concrete\Flysystem\Adapter\Zip(__DIR__.'/files/tester.zip', new ZipArchive);
+        $this->assertInstanceOf('Concrete\Flysystem\AdapterInterface', $adapter);
     }
 
     /**

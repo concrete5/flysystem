@@ -1,5 +1,5 @@
 {
-    "name": "league/flysystem",
+    "name": "concrete5/flysystem",
     "description": "Filesystem abstraction, but easy.",
     "keywords": ["filesystem", "dropbox", "aws", "s3", "ftp", "sftp", "remote", "webdav"],
     "license": "MIT",
@@ -11,7 +11,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "League\\Flysystem\\": "src/"
+            "Concrete\\Flysystem\\": "src/"
         }
     },
     "require-dev": {

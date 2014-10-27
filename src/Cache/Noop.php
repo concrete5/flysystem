@@ -1,8 +1,8 @@
 <?php
 
-namespace League\Flysystem\Cache;
+namespace Concrete\Flysystem\Cache;
 
-use League\Flysystem\Util;
+use Concrete\Flysystem\Util;
 
 class Noop extends AbstractCache
 {

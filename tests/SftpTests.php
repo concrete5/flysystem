@@ -1,7 +1,7 @@
 <?php
 
-use League\Flysystem\Adapter\Sftp;
-use League\Flysystem\Filesystem;
+use Concrete\Flysystem\Adapter\Sftp;
+use Concrete\Flysystem\Filesystem;
 
 class SftpTests extends PHPUnit_Framework_TestCase
 {

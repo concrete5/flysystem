@@ -1,8 +1,8 @@
 <?php
 
-namespace League\Flysystem\Adapter;
+namespace Concrete\Flysystem\Adapter;
 
-use League\Flysystem\Util;
+use Concrete\Flysystem\Util;
 
 class NullAdapter extends AbstractAdapter
 {

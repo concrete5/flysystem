@@ -1,11 +1,33 @@
 <?php
 
-namespace League\Flysystem;
+namespace Concrete\Flysystem;
 
 use LogicException;
 
 class Util
 {
+
+    protected $mime_type_util;
+
+    /**
+     * @return mixed
+     */
+    public function getMimeTypeUtil()
+    {
+        if (!$this->mime_type_util) {
+            $this->setMimeTypeUtil(new Util\MimeType);
+        }
+        return $this->mime_type_util;
+    }
+
+    /**
+     * @param mixed $mime_type_util
+     */
+    public function setMimeTypeUtil($mime_type_util)
+    {
+        $this->mime_type_util = $mime_type_util;
+    }
+
     /**
      * Get normalized pathinfo
      *
@@ -128,17 +150,7 @@ class Util
      */
     public static function guessMimeType($path, $content)
     {
-        $mimeType = Util\MimeType::detectByContent($content);
-
-        if (empty($mimeType) || $mimeType === 'text/plain') {
-            $extension = pathinfo($path, PATHINFO_EXTENSION);
-
-            if ($extension) {
-                $mimeType = Util\MimeType::detectByFileExtension($extension) ?: $mimeType;
-            }
-        }
-
-        return $mimeType;
+        return Util\MimeType::detectMimeType($path, $content);
     }
 
     /**

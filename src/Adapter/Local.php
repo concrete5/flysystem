@@ -1,15 +1,14 @@
 <?php
 
-namespace League\Flysystem\Adapter;
+namespace Concrete\Flysystem\Adapter;
 
-use Finfo;
 use SplFileInfo;
 use FilesystemIterator;
 use DirectoryIterator;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
-use League\Flysystem\Util;
-use League\Flysystem\AdapterInterface;
+use Concrete\Flysystem\Util;
+use Concrete\Flysystem\AdapterInterface;
 
 class Local extends AbstractAdapter
 {
@@ -287,9 +286,10 @@ class Local extends AbstractAdapter
     public function getMimetype($path)
     {
         $location = $this->prefix($path);
-        $finfo = new Finfo(FILEINFO_MIME_TYPE);
 
-        return array('mimetype' => $finfo->file($location));
+        $mime_type = Util\MimeType::detectMimeType($location);
+
+        return array('mimetype' => $mime_type);
     }
 
     /**

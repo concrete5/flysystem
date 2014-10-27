@@ -1,9 +1,9 @@
 <?php
 
-namespace League\Flysystem\Adapter;
+namespace Concrete\Flysystem\Adapter;
 
 use LogicException;
-use League\Flysystem\AdapterInterface;
+use Concrete\Flysystem\AdapterInterface;
 
 abstract class AbstractAdapter implements AdapterInterface
 {

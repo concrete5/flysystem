@@ -1,9 +1,9 @@
 <?php
 
-namespace League\Flysystem\Cache;
+namespace Concrete\Flysystem\Cache;
 
-use League\Flysystem\CacheInterface;
-use League\Flysystem\Util;
+use Concrete\Flysystem\CacheInterface;
+use Concrete\Flysystem\Util;
 
 abstract class AbstractCache implements CacheInterface
 {

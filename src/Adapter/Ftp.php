@@ -1,9 +1,9 @@
 <?php
 
-namespace League\Flysystem\Adapter;
+namespace Concrete\Flysystem\Adapter;
 
-use League\Flysystem\AdapterInterface;
-use League\Flysystem\Util;
+use Concrete\Flysystem\AdapterInterface;
+use Concrete\Flysystem\Util;
 use RuntimeException;
 
 class Ftp extends AbstractFtpAdapter

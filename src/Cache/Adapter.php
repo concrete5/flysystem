@@ -1,8 +1,8 @@
 <?php
 
-namespace League\Flysystem\Cache;
+namespace Concrete\Flysystem\Cache;
 
-use League\Flysystem\AdapterInterface;
+use Concrete\Flysystem\AdapterInterface;
 
 class Adapter extends AbstractCache
 {

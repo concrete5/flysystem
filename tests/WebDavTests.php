@@ -1,7 +1,7 @@
 <?php
 
-use League\Flysystem\Adapter\WebDav as Adapter;
-use League\Flysystem\Filesystem;
+use Concrete\Flysystem\Adapter\WebDav as Adapter;
+use Concrete\Flysystem\Filesystem;
 
 class WebDavTests extends PHPUnit_Framework_TestCase
 {

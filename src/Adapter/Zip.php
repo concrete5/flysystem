@@ -1,10 +1,10 @@
 <?php
 
-namespace League\Flysystem\Adapter;
+namespace Concrete\Flysystem\Adapter;
 
 use LogicException;
 use ZipArchive;
-use League\Flysystem\Util;
+use Concrete\Flysystem\Util;
 
 class Zip extends AbstractAdapter
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace League\Flysystem\Adapter;
+namespace Concrete\Flysystem\Adapter;
 
 function fopen($result)
 {
