@@ -50,11 +50,15 @@ class MimeType
     {
         $mimeType = null;
 
-        if (class_exists('finfo')) {
+        if (0 && class_exists('finfo')) {
             $finfo = new finfo(FILEINFO_MIME_TYPE);
             if (method_exists($finfo, 'buffer')) {
                 $mimeType = $finfo->buffer($content);
             }
+        }
+
+        if (!$mimeType && function_exists('mime_content_type')) {
+            $mimeType = @mime_content_type('data://text/plain;base64,' . base64_encode($content));
         }
 
         return $mimeType ?: null;
