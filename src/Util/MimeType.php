@@ -50,7 +50,7 @@ class MimeType
     {
         $mimeType = null;
 
-        if (0 && class_exists('finfo')) {
+        if (class_exists('finfo')) {
             $finfo = new finfo(FILEINFO_MIME_TYPE);
             if (method_exists($finfo, 'buffer')) {
                 $mimeType = $finfo->buffer($content);
